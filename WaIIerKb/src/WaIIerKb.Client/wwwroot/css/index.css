@@ -42,8 +42,11 @@ body {
 
 #wrapper {
   overflow-x: hidden;
-  overflow-y: hidden;
   margin: 0.875rem;
+}
+
+#wrapper ::-webkit-scrollbar {
+  display: none;
 }
 
 #sidebar-wrapper {
@@ -86,4 +89,22 @@ body {
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+}
+
+p {
+  overflow: hidden;
+  max-width: 90ch;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
