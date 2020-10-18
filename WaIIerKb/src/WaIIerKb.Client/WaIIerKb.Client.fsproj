@@ -5,11 +5,13 @@
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include=".\Models\ModalImage.fs" />
     <Compile Include=".\Models\Model.fs" />
     <Compile Include=".\Models\Message.fs" />
     <Compile Include=".\Router\Router.fs" />
     <Compile Include=".\Pages\HomePage.fs" />
     <Compile Include=".\Pages\AboutPage.fs" />
+    <Compile Include=".\Pages\PCBPage.fs" />
     <Compile Include="Main.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>

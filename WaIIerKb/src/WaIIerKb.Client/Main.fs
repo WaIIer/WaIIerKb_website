@@ -12,6 +12,7 @@ open WaIIerKb.Client.Models.Model
 open WaIIerKb.Client.Router.Router
 open WaIIerKb.Client.Pages.HomePage
 open WaIIerKb.Client.Pages.AboutPage
+open WaIIerKb.Client.Pages.PCBPage
 
 let initModel = { x = ""; Page = Home }
 
@@ -19,11 +20,13 @@ let update message model =
     match message with
     | Ping -> model
     | SetPage page -> { model with Page = page }
+    | ExpandImage modalImage -> model
 
 let view model dispatch =
     match model.Page with
     | Home -> homePage model dispatch
     | About -> aboutPage model dispatch
+    | PCB id -> pcbPage id model dispatch
     | _ -> homePage model dispatch
 
 
