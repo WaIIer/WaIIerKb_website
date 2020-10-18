@@ -1,0 +1,6 @@
+.ionide
+acknowledgements.html
+sass/node_modules
+sass/.sass-cache
+*.css.map
+src/WaIIerKb.*/obj/*

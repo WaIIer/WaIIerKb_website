@@ -1,0 +1,10 @@
+// color theme https://coolors.co/28536b-c2948a-7ea8be-f6f0ed-bbb193
+
+$theme-colors: (
+    "primary": #28536b,
+    "secondary ": #f6f0ed,
+    "info": #7ea8be,
+    "danger ": #c2948a,
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
