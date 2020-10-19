@@ -22,6 +22,13 @@ let bulletList =
             ]
         ]
         li [ attr.``class`` "list-group-item" ] [
+            code [] [ text "QMK Firmware" ]
+            text " Opensource mechanical keyboard firmware that powers most custom mechanical keyboards."
+            a [ attr.href "https://docs.qmk.fm/#/" ] [
+                text " https://docs.qmk.fm/#/"
+            ]
+        ]
+        li [ attr.``class`` "list-group-item" ] [
             code [] [ text "KiCad EDA" ]
             text " A Cross Platform and Open Source Electronics Design Automation Suite. Used to create the PCBs"
             a [ attr.href "https://kicad-pcb.org/" ] [

@@ -108,3 +108,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #ff0000;
 }
+
+.row {
+  margin: 2px;
+}

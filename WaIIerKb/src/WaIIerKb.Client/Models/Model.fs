@@ -14,4 +14,4 @@ type Page =
     | [<EndPoint "/tutorial">] Tutorial
     | [<EndPoint "/interest-check">] InterestCheck
 
-type Model = { x: string; Page: Page }
+type Model = { Page: Page; Modal: ModalImage }

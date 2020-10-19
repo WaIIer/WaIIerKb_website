@@ -7,3 +7,4 @@ type Message =
     | Ping
     | SetPage of Page
     | ExpandImage of ModalImage
+    | CloseImage

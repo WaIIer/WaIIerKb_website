@@ -1,5 +1,6 @@
 module WaIIerKb.Client.Pages.HomePage
 
+open WaIIerKb.Client.Models.Message
 open WaIIerKb.Client.Models.Model
 open WaIIerKb.Client.Router.Router
 
