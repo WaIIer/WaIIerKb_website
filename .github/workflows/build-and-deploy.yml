@@ -27,7 +27,7 @@ jobs:
 
     - name: Build
       working-directory: ${{ env.WORKING_DIRECTORY }}
-      run: donet build --no-restore
+      run: dotnet build --no-restore
 
     - name: Publish
       working-directory: ${{ env.WORKING_DIRECTORY }}
