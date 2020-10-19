@@ -5,6 +5,7 @@ on: [push]
 env:
   NETCORE_VERSION: '3.1.403'
   PUBLISH_PATH: "./publish"
+  DEPLOY_PATH: "./WaIIerKb/publish"
   AZURE_WEBAPP_NAME: "WaIIerKb"
   WORKING_DIRECTORY: "./WaIIerKb"
 
@@ -36,7 +37,6 @@ jobs:
     - name: Deploy to Azure
       uses: azure/webapps-deploy@v2
       with:
-        working-directory: ${{ env.WORKING_DIRECTORY }}
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE}}
-        package: ${{ env.PUBLISH_PATH }}
+        package: ${{ env.DEPLOY_PATH }}
