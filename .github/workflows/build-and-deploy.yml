@@ -1,0 +1,38 @@
+name: "Build and deploy"
+
+on: [push]
+
+env:
+  NETCORE_VERSION: '3.1.403'
+  PUBLISH_PATH: "./publish"
+  AZURE_WEBAPP_NAME: "WaIIerKb"
+
+
+
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-os: ubuntu-latest
+    working-directory: ./WaIIerKb
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core SDK ${{ env.NETCORE_VERSION }}
+      uses: actions/setup-dotnet@v1
+
+    - name: Restore
+      run: dotnet restore
+
+    - name: Build
+      run: donet build --no-restore
+
+    - name: Publish
+      run: dotnet publish --no-deploy --output ${{ env.PUBLISH_PATH }}
+
+    - name: Deploy to Azure
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE}}
+        package: ${{ env.PUBLISH_PATH }}
