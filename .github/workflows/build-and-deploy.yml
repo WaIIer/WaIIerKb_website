@@ -3,7 +3,7 @@ name: "Build and deploy"
 on: [push]
 
 env:
-  NETCORE_VERSION: '3.1.403'
+  NETCORE_VERSION: '3.1.103'
   PUBLISH_PATH: "./publish"
   DEPLOY_PATH: "./WaIIerKb/publish"
   AZURE_WEBAPP_NAME: "WaIIerKb"
@@ -28,7 +28,7 @@ jobs:
 
     - name: Build
       working-directory: ${{ env.WORKING_DIRECTORY }}
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -c Release
 
     - name: Publish
       working-directory: ${{ env.WORKING_DIRECTORY }}
