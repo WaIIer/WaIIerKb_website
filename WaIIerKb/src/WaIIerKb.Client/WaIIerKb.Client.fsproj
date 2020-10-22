@@ -5,6 +5,7 @@
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include=".\Views\ImageGallery.fs" />
     <Compile Include=".\Models\ModalImage.fs" />
     <Compile Include=".\Models\Model.fs" />
     <Compile Include=".\Models\Message.fs" />
