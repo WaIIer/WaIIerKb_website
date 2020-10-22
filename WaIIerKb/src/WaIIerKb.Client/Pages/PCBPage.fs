@@ -1,6 +1,6 @@
 module WaIIerKb.Client.Pages.PCBPage
 
-
+open WaIIerKb.Client.Views.ImageGallery
 open WaIIerKb.Client.Models.ModalImage
 open WaIIerKb.Client.Models.Model
 open WaIIerKb.Client.Models.Message
@@ -109,22 +109,36 @@ let prototypePage model dispatch =
 
 
 let model2Page model dispatch =
-    div [] [
-        h1 [] [ text "WaIIer47 Model 2" ]
-        p [] [
-            text "This is the second keyboard design I sent to be manufactured and it was the first one to work!
+    let images =
+        [ { Source = pcbImage "model2_front"
+            Caption = "Front of the Model 2 PCB"
+            AltText = "Model 2 PCB front" }
+          { Source = pcbImage "model2_back"
+            Caption = "Back of the Model 2 PCB"
+            AltText = "Back of the Model 2 PCB" }
+          { Source = pcbImage "model2_3d_back"
+            Caption = "3D render of the back of the Model 2 PCB"
+            AltText = "3D render of the back of the Model 2 PCB" }
+          { Source = pcbImage "model2_3d_front"
+            Caption = "3D render of the front of the Model 2 PCB"
+            AltText = "3D render of the front of the Model 2 PCB" } ]
+
+    div [ attr.style "max-width: 120ch;" ] [
+        div [ attr.``class`` "row" ] [
+            h1 [] [ text "WaIIer47 Model 2" ]
+        ]
+        div [ attr.``class`` "row" ] [
+            p [] [
+                text "This is the second keyboard design I sent to be manufactured and it was the first one to work!
                    This designe is an improvemtn over the prototype in nearly every aspect: The PCB is shorter;
                    the dead area abover the last row of keys is reduced. The routing of the PCB is much cleaner.
                    Most importantly, it works without any reworks! After loading QMK Firmware, it works like you
                    would expect a keyboard to work (as long as you are willing to learn a lot of macros). There is
                    room for improvement -- which will be shown in the WAIIer47 RGB. I build mine using Kalih Speed Copper
                    keyswitches, which are not meant to be mounted straight into a PCB which is why some of the keys are not straight."
+            ]
         ]
-        image "model2_front" "Front of the Model 2 PCB" "Model 2 PCB front"
-        image "model2_back" "Back of the Model 2 PCB" "Model 2 PCB Back"
-        image "model2_kicad" "KiCad PCB Design" "Kicad PCB"
-        image "model2_3d_front" "3D Model of the front of the PCB" "3D Model of the front of the PCB"
-        image "model2_3d_back" "3D Model of the back of the PCB" "3D Model of the back of the PCB"
+        imageGallery images
     ]
 
 
