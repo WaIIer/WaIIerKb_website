@@ -23,14 +23,10 @@ let private _generateRow images =
                        ("thumbnail col-md-"
                         + (12 / images.Length).ToString()) ] [
                  a [ attr.href galleryImage.Source ] [
-                     img [ attr.``class`` "img-responsive"
+                     img [ attr.``class`` "img-thumbnail"
                            attr.src galleryImage.Source
                            attr.alt galleryImage.AltText
-                           attr.style
-                               ("max-height: "
-                                + (MAX_HEIGHT.ToString())
-                                + "; max-width: "
-                                + (MAX_WIDTH.ToString())) ]
+                           attr.style (sprintf "max-height: %dpx; max-width: %dpx" MAX_HEIGHT MAX_WIDTH) ]
                      div [ attr.``class`` "caption" ] [
                          text galleryImage.Caption
                      ]

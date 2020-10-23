@@ -14,6 +14,7 @@ open WaIIerKb.Client.Router.Router
 open WaIIerKb.Client.Pages.HomePage
 open WaIIerKb.Client.Pages.AboutPage
 open WaIIerKb.Client.Pages.PCBPage
+open WaIIerKb.Client.Pages.CablePage
 
 let initModel = { Page = Home; Modal = blankModalImage }
 
@@ -32,6 +33,7 @@ let view model dispatch =
     | Home -> homePage model dispatch
     | About -> aboutPage model dispatch
     | PCB id -> pcbPage id model dispatch
+    | Cable -> cablePage model dispatch
     | _ -> homePage model dispatch
 
 

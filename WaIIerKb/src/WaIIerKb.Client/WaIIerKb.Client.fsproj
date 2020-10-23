@@ -12,6 +12,7 @@
     <Compile Include=".\Router\Router.fs" />
     <Compile Include=".\Pages\HomePage.fs" />
     <Compile Include=".\Pages\AboutPage.fs" />
+    <Compile Include=".\Pages\CablePage.fs"/>
     <Compile Include=".\Pages\PCBPage.fs" />
     <Compile Include="Main.fs" />
     <Compile Include="Startup.fs" />

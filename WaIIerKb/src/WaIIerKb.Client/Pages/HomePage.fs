@@ -34,6 +34,7 @@ let homePage model dispatch =
                 div [ attr.``class`` "navbar-nav" ] [
                     navbarA true Home "Home"
                     navbarA false About "About"
+                    navbarA false Cable "Cables"
                     navbarA false Keyboards "Keyboards"
                     navbarA false Cases "Cases"
                     navbarA false Tutorial "Tutorial"
