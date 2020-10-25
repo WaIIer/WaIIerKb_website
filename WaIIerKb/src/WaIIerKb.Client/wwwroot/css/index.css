@@ -8,6 +8,10 @@ body {
   flex-direction: column;
 }
 
+li {
+  list-style-type: circle;
+}
+
 #main {
   flex: 1;
 }

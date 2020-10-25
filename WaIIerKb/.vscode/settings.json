@@ -1,5 +1,14 @@
 {
     "FSharp.suggestGitignore": true,
     "FSharp.fsacRuntime": "netcore",
-    "FSharp.useSdkScripts": true
+    "FSharp.useSdkScripts": true,
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "fsharp"
+    ]
 }

@@ -35,10 +35,14 @@ let private stepInnerHtml step dispatch =
       ] ]
 
 let private tutorialStep accordionId stepId (step: Step) model dispatch =
+    let bg =
+        if step.IsComplete then "bg-success" else "bg-primary"
+
     let cardId = sprintf "tutorial-step-%d" stepId
     let headingId = "heading-" + cardId
-    div [ attr.``class`` "card" ] [
-        div [ attr.``class`` "card-header bg-primary text-white"
+    div [ attr.``class`` "card"
+          attr.style "margin-top: 10px" ] [
+        div [ attr.``class`` ("card-header text-white " + bg)
               attr.id headingId ] [
             h2 [ attr.``class`` "mb-0" ] [
                 button [ attr.``class`` "btn btn-link"
@@ -47,7 +51,7 @@ let private tutorialStep accordionId stepId (step: Step) model dispatch =
                          "data-target" => "#" + cardId
                          "aria-expanded" => "false"
                          "aria-controls" => cardId ] [
-                    h3 [ attr.``class`` "float-right text-white" ] [
+                    h3 [ attr.``class`` "float-right text-white align-top" ] [
                         text (sprintf "%d. %s| %d minutes" step.Id step.Name step.TimeEstimate)
                     ]
                 ]
@@ -55,6 +59,7 @@ let private tutorialStep accordionId stepId (step: Step) model dispatch =
         ]
         div [ attr.id cardId
               attr.``class`` "collapse"
+              attr.style "margin-top: 20px"
               "aria_labelleby" => headingId
               "data-parent" => "#" + accordionId ] [
             div [ attr.``class`` "row" ] (stepInnerHtml step dispatch)
@@ -63,9 +68,40 @@ let private tutorialStep accordionId stepId (step: Step) model dispatch =
 
 
 let generateTutorialHtml model dispatch =
-    div
-        [ attr.id (model.Tutorial.Name.Replace(" ", "-"))
-          attr.``class`` "accordion" ]
-        (model.Tutorial.Steps
-         |> List.mapi (fun index step ->
-             tutorialStep (model.Tutorial.Name.Replace(" ", "-")) (index + 1) step model dispatch))
+    let steps = model.Tutorial.Steps.Length
+
+    let complete =
+        model.Tutorial.Steps
+        |> List.filter (fun step -> step.IsComplete)
+
+    div [] [
+        div [ attr.id "tutorial-heading"
+              attr.``class``
+                  ("card text-white "
+                   + if complete.Length = steps then "bg-success" else "bg-primary")
+              attr.style "margin: 20px" ] [
+            div [ attr.``class`` "card-header" ] [
+                text model.Tutorial.Name
+            ]
+            div [ attr.``class`` "card-body" ] [
+                text
+                    (sprintf
+                        "%d/%d Steps Complete"
+                         (model.Tutorial.Steps
+                          |> List.filter (fun step -> step.IsComplete)
+                          |> List.length)
+                         model.Tutorial.Steps.Length)
+                text
+                    (sprintf
+                        "About %d Minutes Left"
+                         (model.Tutorial.Steps
+                          |> List.sumBy (fun step -> if not step.IsComplete then step.TimeEstimate else 0<minute>)))
+            ]
+        ]
+        div
+            [ attr.id (model.Tutorial.Name.Replace(" ", "-"))
+              attr.``class`` "accordion" ]
+            (model.Tutorial.Steps
+             |> List.mapi (fun index step ->
+                 tutorialStep (model.Tutorial.Name.Replace(" ", "-")) (index + 1) step model dispatch))
+    ]
