@@ -5,6 +5,7 @@
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include=".\Lib\Units.fs" />
     <Compile Include=".\Views\ImageGallery.fs" />
     <Compile Include=".\Models\ModalImage.fs" />
     <Compile Include=".\Models\Model.fs" />
@@ -12,6 +13,9 @@
     <Compile Include=".\Router\Router.fs" />
     <Compile Include=".\Pages\HomePage.fs" />
     <Compile Include=".\Pages\AboutPage.fs" />
+    <Compile Include=".\Pages\Tutorials\TutorialLib.fs" />
+    <Compile Include=".\Pages\Tutorials\SwitchTesterTutorial.fs" />
+    <Compile Include=".\Pages\TutorialLandingPage.fs" />
     <Compile Include=".\Pages\CablePage.fs"/>
     <Compile Include=".\Pages\PCBPage.fs" />
     <Compile Include="Main.fs" />

@@ -7,4 +7,6 @@ type Message =
     | Ping
     | SetPage of Page
     | ExpandImage of ModalImage
+    | ToggleTutorialStep of Step
     | CloseImage
+    | SetTutorial of TutorialModel

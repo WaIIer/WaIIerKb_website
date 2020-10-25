@@ -3,8 +3,7 @@ module WaIIerKb.Client.Views.ImageGallery
 open System
 open Bolero.Html
 
-[<Measure>]
-type px
+open WaIIerKb.Client.Lib.Units
 
 type GalleryImage =
     { Source: string
@@ -12,7 +11,7 @@ type GalleryImage =
       AltText: string }
 
 let private MAX_WIDTH = 400<px>
-let private MAX_HEIGHT = 300<px>
+let private MAX_HEIGHT = 225<px>
 
 let private _generateRow images =
     div

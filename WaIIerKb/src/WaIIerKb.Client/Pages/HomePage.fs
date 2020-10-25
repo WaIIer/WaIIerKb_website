@@ -37,7 +37,7 @@ let homePage model dispatch =
                     navbarA false Cable "Cables"
                     navbarA false Keyboards "Keyboards"
                     navbarA false Cases "Cases"
-                    navbarA false Tutorial "Tutorial"
+                    navbarA false Tutorials "Tutorial"
                     navbarA false InterestCheck "Interest Check"
                 ]
             ]

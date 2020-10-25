@@ -1,16 +1,16 @@
 module WaIIerKb.Client.Pages.PCBPage
 
-open WaIIerKb.Client.Views.ImageGallery
-open WaIIerKb.Client.Models.ModalImage
-open WaIIerKb.Client.Models.Model
-open WaIIerKb.Client.Models.Message
-open WaIIerKb.Client.Router.Router
-
 open System
 open System.IO
 open System.Collections.Generic
 open Bolero
 open Bolero.Html
+
+open WaIIerKb.Client.Views.ImageGallery
+open WaIIerKb.Client.Models.ModalImage
+open WaIIerKb.Client.Models.Model
+open WaIIerKb.Client.Models.Message
+open WaIIerKb.Client.Router.Router
 
 let pcbImage (jpgName: string) =
     Path.Combine("images", "pcb", String.Format("{0}.jpg", jpgName))
